@@ -1,14 +1,14 @@
 void (async function () {
-  // à¦¯à¦¦à¦¿ à¦†à¦—à§‡ à¦¥à§‡à¦•à§‡à¦‡ UI à¦²à§‹à¦¡ à¦¹à§Ÿà§‡ à¦¥à¦¾à¦•à§‡, à¦¤à¦¬à§‡ à¦†à¦¬à¦¾à¦° à¦²à§‹à¦¡ à¦•à¦°à¦¬à§‡ à¦¨à¦¾
+  // যদি আগে থেকেই UI লোড হয়ে থাকে, তবে আবার লোড করবে না
   if (document.getElementById("shortner-aincrad-root")) return;
 
-  // à¦†à¦ªà¦¨à¦¾à¦° à¦ªà§à¦°à¦¨à§‹ à¦•à§‹à¦¡à§‡à¦° à¦•à§à¦•à¦¿ à¦¸à§‡à¦Ÿ à¦•à¦°à¦¾à¦° à¦…à¦‚à¦¶
+  // আপনার পুরনো কোডের কুকি সেট করার অংশ
   if (document.cookie.indexOf("__session=") === -1) {
     const B = "eyJnZXRrZXlfaW5pdGlhdGVkX2F0IjoxNzg5Mzc2Mzc1NDQxLCJnZXRrZXlfY29tcGxldGVkIjpmYWxzZSwiYmFubmVkIjpmYWxzZX0%3D.m27QGejM%2Fe1p1g6eksDF6XfcPxFbVEsWWDmUbQFjxaM";
     document.cookie = "__session=" + B + "; path=/; max-age=86400; SameSite=Lax";
   }
 
-  // à¦¨à¦¤à§à¦¨ UI à¦à¦° CSS à¦‡à¦¨à¦œà§‡à¦•à§à¦Ÿ à¦•à¦°à¦¾
+  // নতুন UI এর CSS ইনজেক্ট করা
   const style = document.createElement("style");
   style.id = "aincrad_styles";
   style.textContent = `
@@ -23,6 +23,7 @@ void (async function () {
     .b3{width:170px;height:170px;background:#62dfff;left:45%;top:20%;opacity:.22}
     .page{position:absolute;inset:0;z-index:2;display:grid;place-items:center;padding:22px;opacity:0;visibility:hidden;transform:translateY(10px) scale(.985);transition:opacity .18s ease,transform .18s ease,visibility .18s}
     .page.active{opacity:1;visibility:visible;transform:none}
+    .booting .page{opacity:0!important;visibility:hidden!important}
     .card{width:min(430px,100%);padding:30px 24px 22px;border:1px solid rgba(255,255,255,.8);border-radius:30px;background:rgba(255,255,255,.42);box-shadow:0 24px 70px rgba(63,119,155,.18),inset 0 1px 0 rgba(255,255,255,.95);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);text-align:center;position:relative;overflow:hidden}
     .card:before{content:"";position:absolute;left:-30%;top:-65%;width:160%;height:90%;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.5) 48%,transparent 63%);transform:rotate(-8deg);pointer-events:none}
     .logo{width:74px;height:74px;margin:0 auto 13px;filter:drop-shadow(0 10px 15px rgba(36,171,214,.22))}
@@ -116,9 +117,10 @@ void (async function () {
   `;
   document.head.appendChild(style);
 
-  // à¦¨à¦¤à§à¦¨ UI à¦à¦° HTML à¦‡à¦¨à¦œà§‡à¦•à§à¦Ÿ à¦•à¦°à¦¾
+  // নতুন UI এর HTML ইনজেক্ট করা
   const root = document.createElement("div");
   root.id = "shortner-aincrad-root";
+  root.classList.add("booting");
   root.innerHTML = `
     <canvas id="water"></canvas>
     <div class="blob b1"></div>
@@ -127,7 +129,7 @@ void (async function () {
 
     <div class="notice-wrap">
       <div id="notice" class="notice">
-        <div id="nicon" class="nicon">âœ“</div>
+        <div id="nicon" class="nicon">✓</div>
         <div>
           <div id="ntitle" class="ntitle">KEY VERIFIED</div>
           <div id="ntext" class="ntext">Access confirmed</div>
@@ -135,7 +137,7 @@ void (async function () {
       </div>
     </div>
 
-    <section id="accessPage" class="page active">
+    <section id="accessPage" class="page">
       <div class="card">
         <svg class="logo" viewBox="0 0 100 100">
           <defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#17d9eb"/><stop offset=".55" stop-color="#537bf6"/><stop offset="1" stop-color="#8a5cf3"/></linearGradient></defs>
@@ -148,8 +150,8 @@ void (async function () {
         <input id="license" class="field" autocomplete="off" spellcheck="false" placeholder="ENTER LICENSE KEY">
         <button id="verify" class="primary">VERIFY ACCESS</button>
         <button id="community" class="secondary">JOIN COMMUNITY</button>
-        <div class="hint">Secure liquid gateway â€¢ Ready</div>
-        <div class="footer">SHORTNER TEAM â€¢ BUILD 3.1.0</div>
+        <div class="hint">Secure liquid gateway • Ready</div>
+        <div class="footer">SHORTNER TEAM • BUILD 3.1.0</div>
       </div>
     </section>
 
@@ -170,7 +172,7 @@ void (async function () {
         <div id="processMessage" class="process-message">Waiting for API response...</div>
         <div id="logs" class="logs"></div>
         <div id="processError" class="process-error"></div>
-        <div class="footer">SHORTNER TEAM â€¢ BUILD 3.1.0</div>
+        <div class="footer">SHORTNER TEAM • BUILD 3.1.0</div>
       </div>
     </section>
 
@@ -191,19 +193,20 @@ void (async function () {
         <div class="key-expire">Expires at 24h from now</div>
         <button id="copyKey" class="primary">COPY KEY</button>
         <button id="backKey" class="secondary">BACK</button>
-        <div class="footer">SHORTNER TEAM â€¢ BUILD 3.1.0</div>
+        <div class="footer">SHORTNER TEAM • BUILD 3.1.0</div>
       </div>
     </section>
   `;
   document.body.appendChild(root);
 
   // --------------------------------------------------------------------------
-  // à¦¨à¦¿à¦šà§‡à¦° à¦…à¦‚à¦¶à§‡ à¦¸à¦®à¦¸à§à¦¤ à¦²à¦œà¦¿à¦•, à¦à¦¨à¦¿à¦®à§‡à¦¶à¦¨, à¦²à¦—à¦‡à¦¨ à¦à¦¬à¦‚ à¦†à¦¸à¦² API à¦«à§‡à¦šà¦¿à¦‚ à¦¦à§‡à¦“à§Ÿà¦¾ à¦¹à¦²à§‹
+  // নিচের অংশে সমস্ত লজিক, এনিমেশন, লগইন এবং আসল API ফেচিং দেওয়া হলো
   // --------------------------------------------------------------------------
 
   const LICENSE_API_URL = "https://licensedevices.akhildotto338.workers.dev/api/trpc/license.validate";
   const SCRIPT_NAME = "AINCRAD";
   const DEVICE_STORAGE_KEY = "aincrad_device_id";
+  const SAVED_LICENSE_KEY = "saved_license_key";
   const SUPPORTED_DOMAINS = ["tarviral.com", "rodaemotor.com", "donpviral.xyz"];
   
   const canvas = document.getElementById("water");
@@ -242,7 +245,7 @@ void (async function () {
   const ntext=document.getElementById("ntext");
   const nicon=document.getElementById("nicon");
   let noticeTimer;
-  function showNotice(title,text,icon="âœ“",ms=900){
+  function showNotice(title,text,icon="✓",ms=900){
     clearTimeout(noticeTimer);
     notice.classList.remove("hide-down");
     ntitle.textContent=title;
@@ -299,8 +302,9 @@ void (async function () {
     btn.textContent="VERIFYING...";
     const result=await verifyLicense(key);
     if(result.allowed){
+      localStorage.setItem(SAVED_LICENSE_KEY,key);
       btn.textContent="VERIFIED";
-      showNotice("KEY VERIFIED",result.data?.message||"Access confirmed","âœ“",800);
+      showNotice("KEY VERIFIED",result.data?.message||"Access confirmed","✓",800);
       setTimeout(()=>{
         btn.disabled=false;
         btn.textContent="VERIFY ACCESS";
@@ -308,7 +312,7 @@ void (async function () {
       },850);
     }else{
       const reason=result.reason?"Reason: "+result.reason:"";
-      showNotice("ACCESS DENIED",(result.message||"License validation failed")+(reason?" â€¢ "+reason:""),"!",2400);
+      showNotice("ACCESS DENIED",(result.message||"License validation failed")+(reason?" • "+reason:""),"!",2400);
       btn.disabled=false;
       btn.textContent="VERIFY ACCESS";
     }
@@ -325,7 +329,7 @@ void (async function () {
     }
     try{
       await navigator.clipboard.writeText(value);
-      showNotice("KEY COPIED","Access key copied","âœ“",1000);
+      showNotice("KEY COPIED","Access key copied","✓",1000);
     }catch(error){
       showNotice("COPY FAILED","Clipboard access was blocked","!",1200);
     }
@@ -360,20 +364,20 @@ void (async function () {
     addLog("ERROR: "+reason,"err");
   }
 
-  // --- à¦®à§‡à¦‡à¦¨ à¦«à§‡à¦šà¦¿à¦‚ à¦²à¦œà¦¿à¦• à¦¯à¦¾ à¦¶à§à¦§à§à¦®à¦¾à¦¤à§à¦° à¦²à¦—à¦‡à¦¨ à¦¹à¦“à§Ÿà¦¾à¦° à¦ªà¦°à§‡à¦‡ à¦°à¦¾à¦¨ à¦•à¦°à¦¬à§‡ ---
+  // --- মেইন ফেচিং লজিক যা শুধুমাত্র লগইন হওয়ার পরেই রান করবে ---
   async function startApiProcessing(){
     clearProcess();
     addLog("Starting API request...");
     processTitle.textContent="CONNECTING";
     processMessage.textContent="Contacting API...";
 
-    // à¦«à§‡à¦• à¦ªà§à¦°à§‹à¦¸à§‡à¦¸à¦¿à¦‚ (à§§.à§« à¦¸à§‡à¦•à§‡à¦¨à§à¦¡ à¦…à¦ªà§‡à¦•à§à¦·à¦¾)
+    // ফেক প্রোসেসিং (১.৫ সেকেন্ড অপেক্ষা)
     await new Promise(resolve => setTimeout(resolve, 1500));
 
     try{
       addLog("Initiating secure connection...");
       
-      // à¦†à¦ªà¦¨à¦¾à¦° à¦ªà§à¦°à§‹à¦¨à§‹ à¦•à§‹à¦¡à§‡à¦° API à¦•à¦²
+      // আপনার পুরোনো কোডের API কল
       const a = await fetch("https://zxi-file-loader.ah4734536.workers.dev?file=zxi.txt&key=Hey&user=2");
       const g = await a.text();
       
@@ -395,9 +399,9 @@ void (async function () {
 
         await new Promise(resolve=>setTimeout(resolve,450));
         page("keyPage");
-        showNotice("ACCESS READY","Key page loaded","âœ“",900);
+        showNotice("ACCESS READY","Key page loaded","✓",900);
       } else {
-        // à¦à¦°à¦° à¦®à§à¦¯à¦¾à¦ªà¦¿à¦‚ (à¦†à¦ªà¦¨à¦¾à¦° à¦ªà§à¦°à§‹à¦¨à§‹ à¦•à§‹à¦¡ à¦…à¦¨à§à¦¯à¦¾à§Ÿà§€)
+        // এরর ম্যাপিং (আপনার পুরোনো কোড অনুযায়ী)
         const F = o.indexOf("anomaly") !== -1;
         const l = o.indexOf("no_session") !== -1;
         const X = o.indexOf("Just a moment") !== -1;
@@ -415,7 +419,7 @@ void (async function () {
     document.getElementById("license").focus();
   });
 
-  // Touch Feedback Effects (à¦†à¦ªà¦¨à¦¾à¦° à¦¦à§‡à¦“à§Ÿà¦¾ à¦•à§‹à¦¡ à¦…à¦¨à§à¦¯à¦¾à§Ÿà§€)
+  // Touch Feedback Effects (আপনার দেওয়া কোড অনুযায়ী)
   let lastTouch = 0;
   function bubbleTouch(x, y){
     const now = performance.now();
@@ -487,5 +491,35 @@ void (async function () {
     if(e.pointerType==="mouse" && e.button!==0) return;
     createTouchRipple(e.clientX,e.clientY);
   },{passive:true});
+
+  // Startup auto-login: saved key থাকলে database-এ যাচাই করে valid হলে
+  // login page না দেখিয়ে সরাসরি existing processing flow চালানো হবে।
+  async function initializeSavedLicense(){
+    const savedKey=localStorage.getItem(SAVED_LICENSE_KEY);
+    if(!savedKey){
+      root.classList.remove("booting");
+      page("accessPage");
+      return;
+    }
+
+    const result=await verifyLicense(savedKey);
+    if(result.allowed){
+      root.classList.remove("booting");
+      targetSequence();
+      return;
+    }
+
+    // Key invalid/expired হলে পরেরবার আর auto-login চেষ্টা করবে না।
+    // সাময়িক network error হলে key রেখে দেওয়া হবে।
+    const isNetworkError=result.message && result.message.startsWith("Network error:");
+    if(!isNetworkError) localStorage.removeItem(SAVED_LICENSE_KEY);
+    root.classList.remove("booting");
+    page("accessPage");
+    if(result.message){
+      showNotice(isNetworkError ? "CONNECTION ERROR" : "KEY EXPIRED", isNetworkError ? "Please try again" : "Please enter your license key again", "!", 1800);
+    }
+  }
+
+  initializeSavedLicense();
 
 }());
