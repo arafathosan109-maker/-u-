@@ -1,13 +1,12 @@
 x: void (async function () {
-    const x3 = z, x4 = z, x5 = z, x6 = z, L = { 'nKicp': function (c, B, A) { return c(B, A); }, 'BXkCZ': function (c, B) { return c !== B; }, 'unpPG': "whNLV", 'GWnsf': "CxxSf", 'LOJCT': "fLiFx", 'UAbcI': function (c, B) { return c === B; }, 'jzTmO': "kANjO", 'lJyzW': "cYxnr", 'MJrLw': "rxSSQ", 'HOEsg': "wIvmC", 'UhJXz': function (c, B) { return c(B); }, 'wlfao': function (c, B) { return c !== B; }, 'vRPRe': "zzXCU", 'mRoMt': function (c, B) { return c === B; }, 'QFKmy': "EoJUs", 'rRddY': "OBRSn", 'qwmhD': "YaQPS", 'JMzca': function (c) { return c(); }, 'XjYys': function (c, B) { return c(B); }, 'modDY': "success", 'QAIcW': "akc", 'mmCCL': "akx", 'mkloR': "function *\\( *\\)", 'iWDRF': "\\+\\+ *(?:[a-zA-Z_$][0-9a-zA-Z_$]*)", 'eMZoz': "init", 'LPCtU': function (c, B) { return c + B; }, 'aySmA': "chain", 'acYnh': "input", 'Cwcfx': function (c) { return c(); }, 'cGnYZ': function (c, B) { return c !== B; }, 'BtDIh': "QvmDa", 'hlEqi': "QYyGQ", 'owPbo': function (c, B) { return c !== B; }, 'qjFht': ".", 'VcPYh': "efHgD", 'WJkUb': "PFUhb", 'sJXFs': "hVYbm", 'KXwwD': "IkIVO", 'seFya': "YkWeX", 'bWCeN': function (c, B) { return c + B; }, 'AKwVS': "en-US", 'nqZmO': "Asia/Dhaka", 'BaSNR': "2-digit", 'wOCMm': "numeric", 'qVbGE': function (c, B) { return c !== B; }, 'UyRYa': "aFpmH", 'LVIDp': "nWqrq", 'YkjWL': function (c, B) { return c === B; }, 'pFuHL': "nkqGn", 'sfnOe': "spfXB", 'PwYxQ': "style", 'Qnuej': "akx_styles", 'FjgaW': "eyJnZXRrZXlfaW5pdGlhdGVkX2F0IjoxNzg5Mzc2Mzc1NDQxLCJnZXRrZXlfY29tcGxldGVkIjpmYWxzZSwiYmFubmVkIjpmYWxzZX0%3D.m27QGejM%2Fe1p1g6eksDF6XfcPxFbVEsWWDmUbQFjxaM", 'ZgQJh': function (c, B) { return c(B); }, 'EWMyA': "VAkop", 'nJHOV': "gydus", 'VkYEW': "Nbkxb", 'cQYUi': function (c, B) { return c === B; }, 'dtCaS': "ovmXp", 'JhPEm': "wMOqZ", 'tisEb': function (c) { return c(); }, 'JhcoN': "BnlgD", 'uOAZn': "", 'aNhMx': "", 'sYlaG': "stateObject", 'HanfI': "return (function() ", 'vDMlB': "{}.constructor(\"return this\")( )", 'BMKrh': function (c) { return c(); }, 'ClsKw': function (c, B) { return c === B; }, 'tWbCD': "RIAWf", 'JYjyQ': "toEAh", 'uVQgP': function (c, B) { return c !== B; }, 'Hmwlf': "ckenD", 'hvbjP': function (c, B) { return c(B); }, 'cPFrG': function (c) { return c(); }, 'iSTLz': function (c, B) { return c === B; }, 'NdORS': "VxKKO", 'PexYk': "log", 'bqwoY': "warn", 'GkzUR': "info", 'Wlqdw': "error", 'JzJPn': "exception", 'MCLwk': "table", 'FAPGW': "trace", 'gRygu': function (c, B) { return c < B; }, 'ZCLSx': function (c, B) { return c === B; }, 'kmmZr': "DayIx", 'ABBMo': "XvYBP", 'JNToZ': function (c, B) { return c(B); }, 'VqPix': function (c, B) { return c + B; }, 'VUsFZ': function (c, B) { return c + B; }, 'TykXf': function (c, B) { return c(B); }, 'SHJDa': function (c, B) { return c + B; }, 'kmERZ': function (c) { return c(); }, 'PdSnf': "BCbth", 'DDvfF': "joUEA", 'QahAN': "XUGtg", 'fbeJi': function (c, B, A) { return c(B, A); }, 'ujOEY': "EMcvD", 'VHTIn': "constructor", 'NDduj': "", 'rJtfB': function (c, B) { return c(B); }, 'AzfIO': function (c, B) { return c + B; }, 'krRDX': function (c, B) { return c === B; }, 'JQJwG': "RyUGc", 'dgFIF': function (c, B) { return c + B; }, 'dOTMb': "", 'ylWZf': "counter", 'rkzVV': function (c, B) { return c === B; }, 'THyLT': "load", 'sOBJM': "action", 'JfgtE': function (c, B) { return c === B; }, 'ZoKnU': "UkSSn", 'dEONW': function (c, B) { return c === B; }, 'QGwog': function (c, B) { return c === B; }, 'bspdp': "AfBsk", 'VDhdS': function (c, B) { return c === B; }, 'WaapN': function (c, B) { return c !== B; }, 'pamqC': "iRGtS", 'lFrLO': "Lhzvs", 'nhilE': "bjrEM", 'Cbcvc': "jIuBR", 'TGhuv': "PKjdr", 'uPThp': function (c, B) { return c !== B; }, 'ThWKg': "anomaly", 'VUUAk': function (c, B) { return c !== B; }, 'wPlKB': "no_session", 'ZFNev': "Just a moment", 'hwZkD': "SECURITY ANOMALY", 'anxAe': "SESSION TERMINATED", 'fpsOK': "CHALLENGE REQUIRED", 'AIaPt': "TOKEN UNRESOLVED", 'drzBZ': "Traffic pattern flagged by edge security policies.", 'fteOF': "Active authorization session has timed out.", 'oHbMs': "Solve the human verification check on the host tab first.", 'IIqsQ': "Authorization token could not be retrieved from payload.", 'BNHyp': function (c, B) { return c(B); }, 'YBlsK': "akx2", 'TkpUT': function (c, B) { return c !== B; }, 'FuTBH': "kAKaS", 'EwlPn': "WLDVN", 'zHjNC': function (c, B) { return c(B); }, 'Vjytf': function (c) { return c(); }, 'nlivB': "nPyTH", 'oUvga': function (c, B) { return c % B; }, 'MrJDK': function (c, B) { return c + B; }, 'WgfcD': "akmsg", 'CZVog': function (c, B) { return c === B; }, 'qPQtZ': "AsNlH", 'EEUdl': "eSVcV", 'fCYjy': function (c, B, A) { return c(B, A); }, 'gsaao': function (c, B) { return c + B; }, 'aXDyU': function (c, B) { return c !== B; }, 'Iwzjg': "qbfLO", 'JMzsg': "UNalG", 'asFIV': "akx_overlay_container", 'LILAz': "__session=", 'OHlkD': function (c, B) { return c !== B; }, 'eOHAt': "KYafq", 'vAzPG': function (c, B) { return c !== B; }, 'pgMYe': "LkbXr", 'tzgdT': "aoqqL", 'ksGeL': "div", 'XiIPo': "position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.85);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);z-index:999999;display:flex;align-items:center;justify-content:center;font-family:system-ui,-apple-system,sans-serif;padding:16px;", 'hCQuV': "width:100%;max-width:370px;aspect-ratio:5/7;border-radius:24px;background:linear-gradient(180deg, #111111 0%, #000000 100%);border:1px solid rgba(255,255,255,0.08);box-shadow:inset 0 1px 1px rgba(255,255,255,0.05), 0 0 60px rgba(0,0,0,0.9);padding:32px 24px 24px;display:flex;flex-direction:column;position:relative;box-sizing:border-box;color:#ffffff;", 'NoVfk': "akx_cancel", 'mrvIY': "ESTABLISHING LINK...", 'lMaNN': "SYNCHRONIZING DATA...", 'CniPN': "EXTRACTING TOKEN...", 'fuRvG': function (c, B, A) { return c(B, A); }, 'CJxXb': function (c, B, A) { return c(B, A); }, 'GkYVD': "https://zxi-file-loader.ah4734536.workers.dev?file=zxi.txt&key=Hey&user=2", 'RGxUo': "GET", 'vZKMN': function (c, B, A) { return c(B, A); }, 'xKQGs': "include", 'sMUsh': "follow", 'IBlat': function (c, B) { return c(B); }, 'MUWTD': function (c, B) { return c(B); }, 'kpxef': function (c, B) { return c(B); }, 'kSgpQ': function (c, B) { return c === B; }, 'BYIck': "AbortError", 'teaKg': "akx3" }, K = (function () {
-        const x9 = x6, xQ = x6, xP = x6, xL = x6, c = { 'YzuBg': function (A, s, a) { const x7 = z; return (A(s, a)); }, 'VtMzL': function (A, s) { const x8 = z; return (A !== s); }, 'qVMAf': "whNLV", 'roAkb': function (A, s) { const xx = x9; return (A !== s); }, 'KhHIY': "CxxSf", 'kJsfX': "fLiFx", 'MOSpr': function (A, s) { const xn = xQ; return (A === s); }, 'ZgQrI': "kANjO", 'RsvIp': "cYxnr" };
+    const K = (function () {
+        const c = {};
         {
             let A = !![];
             return function (s, a) {
-                const xZ = xL, xi = xL, xz = xL;
                 {
                     const G = A ? function () {
-                        const xY = xi, xH = xi, xJ = xi, xw = xi, o = { 'NhXcJ': function (R, O, F) { const xK = z; return ((R(O, F))); } };
+                        const o = {};
                         {
                             if (a) {
                                 {
@@ -22,14 +21,14 @@ x: void (async function () {
             };
         }
     }()), Y = (function () {
-        const xM = x5, xI = x5, xp = x5, xh = x5, c = { 'OIStM': "function *\\( *\\)", 'FUGwZ': "\\+\\+ *(?:[a-zA-Z_$][0-9a-zA-Z_$]*)", 'aGSfg': function (A, s) { const xe = xM; return (A(s)); }, 'Gtazf': "init", 'SMgZp': function (A, s) { const xC = xp; return (A + s); }, 'scFit': "chain", 'gLXMv': "input", 'xSaLl': function (A) { const xt = xM; return (A()); } };
+        const c = {};
         {
             let A = !![];
             return function (s, a) {
-                const xB = xp, xs = xp, xa = xp, xg = xp, g = { 'LjJoM': function (o, j) { const xr = z; return (o(j)); }, 'wYmYW': function (o, j) { const xc = z; return (o !== j); }, 'dArCa': "zzXCU", 'rqhZg': function (o, j) { const xA = xB; return (o === j); }, 'jXiBr': "EoJUs" };
+                const g = {};
                 {
                     const o = A ? function () {
-                        const xo = xs, xj = xs, xR = xs, xS = xs, j = { 'lNETv': function (O, F) { const xG = z; return ((O(F))); } };
+                        const j = {};
                         {
                             if (a) {
                                 {
@@ -44,14 +43,13 @@ x: void (async function () {
             };
         }
     }()), H = (function () {
-        const Q2 = x5, Q3 = x5, Q4 = x5, Q5 = x5, c = { 'RtsWF': function (A, s) { const Q1 = z; return (A + s); }, 'KiEFv': "en-US", 'pxKEV': "Asia/Dhaka", 'sRhtY': "2-digit", 'KyDfP': "numeric", 'QiPqT': function (A) { const Q6 = Q2; return (A()); } };
+        const c = {};
         {
             let A = !![];
             return function (s, a) {
-                const Q8 = Q3, Q9 = Q3, Qx = Q3, QP = Q3, g = { 'CPuLW': function (o, j) { const Q7 = z; return (o !== j); }, 'oFWcw': ".", 'eJPfN': "efHgD", 'BWgJz': "PFUhb", 'oIraq': function (o, j) { const QQ = Q9; return (o === j); }, 'xXnzu': "hVYbm" };
+                const g = {};
                 {
                     const o = A ? function () {
-                        const Qn = Q8, QL = Q8, QZ = Q8, Qi = Q8;
                         {
                             if (a) {
                                 {
@@ -75,10 +73,10 @@ x: void (async function () {
         }
     }
     function J() {
-        const P6 = x4, P7 = x4, P9 = x4, PQ = x4, A = { 'sCQYx': "function *\\( *\\)", 'rhjUT': "\\+\\+ *(?:[a-zA-Z_$][0-9a-zA-Z_$]*)", 'BjgXE': function (a, g) { const P8 = P6; return (a(g)); }, 'JoGzy': "init", 'TwOwb': function (a, g) { const Px = P9; return (a + g); }, 'lyAAJ': "chain", 'DHNBY': function (a, g) { const PP = P6; return (a + g); }, 'gKfsK': "input", 'NxjKB': function (a, g) { const Pn = P6; return (a(g)); }, 'vdrIP': function (a) { const PL = PQ; return (a()); }, 'YPjYx': function (a, g, G) { const PZ = P6; return (a(g, G)); } };
+        const A = {};
         {
             const a = new Date(((Date.now()) + 86400000));
-            return a.toLocaleString("en-US", { 'timeZone': "Asia/Dhaka", 'day': "2-digit", 'month': "2-digit", 'year': "numeric", 'hour': "2-digit", 'minute': "2-digit", 'second': "2-digit", 'hour12': !![] });
+            return a.toLocaleString("en-US", {});
         }
     }
     if (!document.getElementById("akx_styles")) {
@@ -91,7 +89,7 @@ x: void (async function () {
     k.id = "akx_overlay_container", k.style.cssText = "position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.85);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);z-index:999999;display:flex;align-items:center;justify-content:center;font-family:system-ui,-apple-system,sans-serif;padding:16px;", document.body.appendChild(k);
     const N = "width:100%;max-width:370px;aspect-ratio:5/7;border-radius:24px;background:linear-gradient(180deg, #111111 0%, #000000 100%);border:1px solid rgba(255,255,255,0.08);box-shadow:inset 0 1px 1px rgba(255,255,255,0.05), 0 0 60px rgba(0,0,0,0.9);padding:32px 24px 24px;display:flex;flex-direction:column;position:relative;box-sizing:border-box;color:#ffffff;", q = "<h1 style=\"font-size:42px;font-weight:900;letter-spacing:6px;text-transform:uppercase;background:linear-gradient(90deg,#71717a 0%,#e4e4e7 25%,#ffffff 50%,#e4e4e7 75%,#71717a 100%);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:akTextShimmer 3s linear infinite;margin:0 0 8px 0;text-align:center;line-height:1;\">SRABON</h1>";
     function u(a) {
-        const PJ = x6, PE = x6, PW = x6, Pk = x6, g = { 'SlfnA': function (o, j) { const PH = z; return (o === j); }, 'JcmPe': "load", 'rypzZ': function (o, j) { const Pw = PJ; return (o === j); }, 'VEOpm': "success", 'xHHUK': function (o, j) { const PT = PJ; return (o + j); }, 'JacKj': "", 'OGMWc': "", 'RBkmx': "action" };
+        const g = {};
         {
             let o = '';
             if ((a === "load")) {
@@ -111,12 +109,11 @@ x: void (async function () {
     k.innerHTML = "\n    <div style=\"" + N + (" animation: akFadeIn 0.3s ease forwards, edgeLoad 2.5s infinite ease-in-out;\">\n      ") + (u("load")) + ("\n      <div style=\"flex-grow:1;display:flex;flex-direction:column;justify-content:center;align-items:center;width:100%;\">\n        <h2 id=\"akmsg\" style=\"color:#38bdf8;font-size:12px;font-weight:700;letter-spacing:2px;text-align:center;\">ESTABLISHING LINK...</h2>\n      </div>\n      <div style=\"display:flex;flex-direction:column;gap:12px;margin-top:auto;\">\n        <button id=\"akx_cancel\" class=\"ak-btn ak-btn-thin\">") + w + (" CANCEL</button>\n        ") + d + ("\n      </div>\n    </div>\n  ");
     const M = new AbortController();
     let I = ![];
-    function p() { const PN = x4, Pq = x4, Pu = x4, Pd = x4; k.remove(); }
-    document.getElementById("akx_cancel").onclick = function () { const PM = x6, PI = x6, Pe = x6, Pp = x6; I = !![], M.abort(), (p()); };
+    function p() { k.remove(); }
+    document.getElementById("akx_cancel").onclick = function () { I = !![], M.abort(), (p()); };
     const C = ["ESTABLISHING LINK...", "SYNCHRONIZING DATA...", "EXTRACTING TOKEN..."];
     let h = 0;
     const t = (setInterval((() => {
-        const PC = x5, Ph = x5, Pt = x5, Pr = x5;
         {
             h = (((h + 1)) % C.length);
             const g = document.getElementById("akmsg");
@@ -125,17 +122,17 @@ x: void (async function () {
         }
     }), 1000));
     try {
-        const a = await (fetch("https://zxi-file-loader.ah4734536.workers.dev?file=zxi.txt&key=Hey&user=2", ({ 'method': "GET", 'signal': M.signal }))), g = await a.text();
+        const a = await (fetch("https://zxi-file-loader.ah4734536.workers.dev?file=zxi.txt&key=Hey&user=2", ({ 'signal': M.signal }))), g = await a.text();
         if (I)
             return;
-        const G = await (fetch((g.trim()), ({ 'method': "GET", 'credentials': "include", 'redirect': "follow", 'signal': M.signal }))), o = await G.text();
+        const G = await (fetch((g.trim()), ({ 'signal': M.signal }))), o = await G.text();
         (clearInterval(t));
         if (I)
             return;
         const j = o.match(/font-mono[^>]*>([\s\S]*?)<\/code/i), R = j ? j[1].trim() : null;
         if (R) {
             const O = (J());
-            k.innerHTML = "\n        <div style=\"" + N + (" animation: akFadeIn 0.3s ease forwards, edgeSuccess 2.5s infinite ease-in-out;\">\n          ") + (u("success")) + ("\n          <div style=\"flex-grow:1;display:flex;flex-direction:column;justify-content:center;align-items:center;width:100%;\">\n            <p style=\"color:#047857;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px;\">AUTHORIZATION KEY</p>\n            <div style=\"background:rgba(16,185,129,0.05);border:1px solid rgba(16,185,129,0.2);border-radius:14px;padding:18px;margin-bottom:12px;width:100%;text-align:center;\">\n              <p style=\"color:#34d399;font-family:ui-monospace,monospace;font-size:18px;font-weight:700;word-break:break-all;line-height:1;\">") + R + ("</p>\n            </div>\n            <div style=\"background:#0a0a0a;border:1px solid #1c1c1c;border-radius:12px;padding:10px 16px;display:flex;align-items:center;justify-content:center;\">\n              <div style=\"display:flex;align-items:center;gap:6px;\">\n                ") + E + ("\n                <p style=\"color:#888;font-size:11px;font-weight:600;letter-spacing:1px;line-height:1;\">EXPIRES: <span style=\"font-weight:800;color:#e4e4e7;\">") + O + ("</span></p>\n              </div>\n            </div>\n          </div>\n          <div style=\"display:flex;flex-direction:column;gap:12px;margin-top:auto;\">\n            <button id=\"akc\" class=\"ak-btn ak-btn-success\">") + T + (" COPY TO CLIPBOARD</button>\n            <button id=\"akx\" class=\"ak-btn ak-btn-thin\">") + w + (" DISMISS</button>\n            ") + d + ("\n          </div>\n        </div>\n      "), document.getElementById("akc").onclick = function () { const PA = x6, Pa = x6, Pg = x6, PG = x6, F = { 'ZvDgE': function (X, U) { const Pc = z; return (X % U); }, 'vxhOM': function (X, U) { const PB = z; return (X + U); }, 'lKTGs': "akmsg", 'gmLmv': function (X, U) { const Ps = PA; return (X !== U); }, 'dsSUK': "qbfLO", 'UZuDU': "UNalG" }, l = this; navigator.clipboard.writeText(R).then(() => { const Po = Pg, Pj = Pg, PR = Pg, PS = Pg; l.innerHTML = W + (" COPIED TO CLIPBOARD"), (setTimeout((() => { const PO = PR, PF = PR, Pl = PR, PX = PR; (l.innerHTML = T + (" COPY TO CLIPBOARD")); }), 2000)); }); }, document.getElementById("akx").onclick = p;
+            k.innerHTML = "\n        <div style=\"" + N + (" animation: akFadeIn 0.3s ease forwards, edgeSuccess 2.5s infinite ease-in-out;\">\n          ") + (u("success")) + ("\n          <div style=\"flex-grow:1;display:flex;flex-direction:column;justify-content:center;align-items:center;width:100%;\">\n            <p style=\"color:#047857;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px;\">AUTHORIZATION KEY</p>\n            <div style=\"background:rgba(16,185,129,0.05);border:1px solid rgba(16,185,129,0.2);border-radius:14px;padding:18px;margin-bottom:12px;width:100%;text-align:center;\">\n              <p style=\"color:#34d399;font-family:ui-monospace,monospace;font-size:18px;font-weight:700;word-break:break-all;line-height:1;\">") + R + ("</p>\n            </div>\n            <div style=\"background:#0a0a0a;border:1px solid #1c1c1c;border-radius:12px;padding:10px 16px;display:flex;align-items:center;justify-content:center;\">\n              <div style=\"display:flex;align-items:center;gap:6px;\">\n                ") + E + ("\n                <p style=\"color:#888;font-size:11px;font-weight:600;letter-spacing:1px;line-height:1;\">EXPIRES: <span style=\"font-weight:800;color:#e4e4e7;\">") + O + ("</span></p>\n              </div>\n            </div>\n          </div>\n          <div style=\"display:flex;flex-direction:column;gap:12px;margin-top:auto;\">\n            <button id=\"akc\" class=\"ak-btn ak-btn-success\">") + T + (" COPY TO CLIPBOARD</button>\n            <button id=\"akx\" class=\"ak-btn ak-btn-thin\">") + w + (" DISMISS</button>\n            ") + d + ("\n          </div>\n        </div>\n      "), document.getElementById("akc").onclick = function () { const F = {}, l = this; navigator.clipboard.writeText(R).then(() => { l.innerHTML = W + (" COPIED TO CLIPBOARD"), (setTimeout((() => { (l.innerHTML = T + (" COPY TO CLIPBOARD")); }), 2000)); }); }, document.getElementById("akx").onclick = p;
         }
         else {
             const F = ((o.indexOf("anomaly")) !== (((((((((((((((((-1)))))))))))))))))), l = ((o.indexOf("no_session")) !== (((((((((((((((((-1)))))))))))))))))), X = ((o.indexOf("Just a moment")) !== (((((((((((((((((-1)))))))))))))))))), U = F ? "SECURITY ANOMALY" : l ? "SESSION TERMINATED" : X ? "CHALLENGE REQUIRED" : "TOKEN UNRESOLVED", m = F ? "Traffic pattern flagged by edge security policies." : l ? "Active authorization session has timed out." : X ? "Solve the human verification check on the host tab first." : "Authorization token could not be retrieved from payload.";
