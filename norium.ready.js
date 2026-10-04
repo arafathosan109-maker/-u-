@@ -1,148 +1,491 @@
-x: void (async function () {
-    const K = (function () {
-        const c = {};
-        {
-            let A = !![];
-            return function (s, a) {
-                {
-                    const G = A ? function () {
-                        const o = {};
-                        {
-                            if (a) {
-                                {
-                                    const R = a.apply(s, arguments);
-                                    return a = null, R;
-                                }
-                            }
-                        }
-                    } : function () { };
-                    return A = ![], G;
-                }
-            };
-        }
-    }()), Y = (function () {
-        const c = {};
-        {
-            let A = !![];
-            return function (s, a) {
-                const g = {};
-                {
-                    const o = A ? function () {
-                        const j = {};
-                        {
-                            if (a) {
-                                {
-                                    const O = a.apply(s, arguments);
-                                    return a = null, O;
-                                }
-                            }
-                        }
-                    } : function () { };
-                    return A = ![], o;
-                }
-            };
-        }
-    }()), H = (function () {
-        const c = {};
-        {
-            let A = !![];
-            return function (s, a) {
-                const g = {};
-                {
-                    const o = A ? function () {
-                        {
-                            if (a) {
-                                {
-                                    const R = a.apply(s, arguments);
-                                    return a = null, R;
-                                }
-                            }
-                        }
-                    } : function () { };
-                    return A = ![], o;
-                }
-            };
-        }
-    }());
-    if (document.getElementById("akx_overlay_container"))
-        return;
-    if (((document.cookie.indexOf("__session=")) === (((((((((((((((((-1))))))))))))))))))) {
-        {
-            const B = "eyJnZXRrZXlfaW5pdGlhdGVkX2F0IjoxNzg5Mzc2Mzc1NDQxLCJnZXRrZXlfY29tcGxldGVkIjpmYWxzZSwiYmFubmVkIjpmYWxzZX0%3D.m27QGejM%2Fe1p1g6eksDF6XfcPxFbVEsWWDmUbQFjxaM";
-            document.cookie = "__session=" + B + ("; path=/; max-age=86400; SameSite=Lax");
-        }
+void (async function () {
+  // à¦¯à¦¦à¦¿ à¦†à¦—à§‡ à¦¥à§‡à¦•à§‡à¦‡ UI à¦²à§‹à¦¡ à¦¹à§Ÿà§‡ à¦¥à¦¾à¦•à§‡, à¦¤à¦¬à§‡ à¦†à¦¬à¦¾à¦° à¦²à§‹à¦¡ à¦•à¦°à¦¬à§‡ à¦¨à¦¾
+  if (document.getElementById("shortner-aincrad-root")) return;
+
+  // à¦†à¦ªà¦¨à¦¾à¦° à¦ªà§à¦°à¦¨à§‹ à¦•à§‹à¦¡à§‡à¦° à¦•à§à¦•à¦¿ à¦¸à§‡à¦Ÿ à¦•à¦°à¦¾à¦° à¦…à¦‚à¦¶
+  if (document.cookie.indexOf("__session=") === -1) {
+    const B = "eyJnZXRrZXlfaW5pdGlhdGVkX2F0IjoxNzg5Mzc2Mzc1NDQxLCJnZXRrZXlfY29tcGxldGVkIjpmYWxzZSwiYmFubmVkIjpmYWxzZX0%3D.m27QGejM%2Fe1p1g6eksDF6XfcPxFbVEsWWDmUbQFjxaM";
+    document.cookie = "__session=" + B + "; path=/; max-age=86400; SameSite=Lax";
+  }
+
+  // à¦¨à¦¤à§à¦¨ UI à¦à¦° CSS à¦‡à¦¨à¦œà§‡à¦•à§à¦Ÿ à¦•à¦°à¦¾
+  const style = document.createElement("style");
+  style.id = "aincrad_styles";
+  style.textContent = `
+    #shortner-aincrad-root{position:fixed;inset:0;z-index:2147483647;overflow:auto;background:linear-gradient(135deg,#eafcff 0%,#f7fbff 45%,#eef0ff 100%)}
+    *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+    html,body{margin:0;width:100%;height:100%;overflow:hidden;font-family:Inter,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#17324d}
+    body{background:transparent}
+    #water{display:none}
+    .blob{display:none;position:fixed;border-radius:50%;filter:blur(34px);opacity:.42;pointer-events:none;z-index:1}
+    .b1{width:230px;height:230px;background:#59e9ff;top:-80px;left:-60px}
+    .b2{width:260px;height:260px;background:#8e83ff;right:-90px;bottom:-80px}
+    .b3{width:170px;height:170px;background:#62dfff;left:45%;top:20%;opacity:.22}
+    .page{position:absolute;inset:0;z-index:2;display:grid;place-items:center;padding:22px;opacity:0;visibility:hidden;transform:translateY(10px) scale(.985);transition:opacity .18s ease,transform .18s ease,visibility .18s}
+    .page.active{opacity:1;visibility:visible;transform:none}
+    .card{width:min(430px,100%);padding:30px 24px 22px;border:1px solid rgba(255,255,255,.8);border-radius:30px;background:rgba(255,255,255,.42);box-shadow:0 24px 70px rgba(63,119,155,.18),inset 0 1px 0 rgba(255,255,255,.95);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);text-align:center;position:relative;overflow:hidden}
+    .card:before{content:"";position:absolute;left:-30%;top:-65%;width:160%;height:90%;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.5) 48%,transparent 63%);transform:rotate(-8deg);pointer-events:none}
+    .logo{width:74px;height:74px;margin:0 auto 13px;filter:drop-shadow(0 10px 15px rgba(36,171,214,.22))}
+    h1{font-size:30px;letter-spacing:5px;margin:0;font-weight:800}
+    .sub{margin:6px 0 19px;font-size:11px;letter-spacing:3px;color:#5f7d91;font-weight:700}
+    .status{display:inline-flex;align-items:center;gap:7px;padding:7px 11px;border-radius:99px;background:rgba(255,255,255,.55);font-size:10px;font-weight:800;letter-spacing:1.4px;color:#477086;margin-bottom:19px}
+    .dot{width:7px;height:7px;border-radius:50%;background:#19d69b;box-shadow:0 0 0 5px rgba(25,214,155,.12)}
+    .field{width:100%;height:54px;border:1px solid rgba(117,164,185,.25);border-radius:17px;background:rgba(255,255,255,.57);outline:none;padding:0 16px;text-align:center;font-size:16px;letter-spacing:2px;color:#17324d;box-shadow:inset 0 1px 2px rgba(40,100,130,.06)}
+    .field:focus{border-color:rgba(46,197,231,.65);box-shadow:0 0 0 4px rgba(52,207,235,.1)}
+    button{width:100%;height:52px;border:0;border-radius:17px;margin-top:12px;color:white;font-weight:800;letter-spacing:1.7px;font-size:12px;cursor:pointer;box-shadow:0 13px 27px rgba(62,128,184,.22);position:relative;overflow:hidden;transition:transform .12s ease}
+    .primary{background:linear-gradient(100deg,#18cfe8,#477cf6,#895cf4);background-size:180% 100%}
+    @keyframes grad{to{background-position:180% 0}}
+    .primary.animating{animation:grad .55s ease-in-out 1}
+    .secondary{background:rgba(255,255,255,.58);color:#46728b;border:1px solid rgba(104,160,185,.2);box-shadow:none}
+    button:active{transform:scale(.985)}
+    .hint{font-size:10px;color:#7892a3;margin:12px 0 0}
+    .footer{font-size:9px;letter-spacing:2px;color:#7d98a8;margin-top:20px}
+    .notice-wrap{position:fixed;right:14px;top:14px;z-index:20;pointer-events:none}
+    .notice{width:min(310px,calc(100vw - 28px));padding:14px 16px;border-radius:18px;background:rgba(255,255,255,.72);border:1px solid rgba(255,255,255,.9);box-shadow:0 18px 45px rgba(46,101,132,.2);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);transform:translateY(-24px);opacity:0;transition:transform .16s ease,opacity .16s ease;display:flex;align-items:center;gap:11px}
+    .notice.show{transform:translateY(0);opacity:1}
+    .notice.hide-down{transform:translateY(38px);opacity:0}
+    .nicon{width:31px;height:31px;border-radius:11px;display:grid;place-items:center;background:linear-gradient(135deg,#18d9e8,#6672f6);color:#fff;font-weight:900}
+    .ntitle{font-size:12px;font-weight:900;letter-spacing:1.3px}
+    .ntext{font-size:10px;color:#6b8596;margin-top:2px}
+    .time-inputs{width:100%;display:flex;align-items:center;justify-content:center;gap:10px;margin-top:10px}
+    .time-box{width:42%;position:relative}
+    .time-box .field{width:100%;padding:0 10px;font-size:20px;font-weight:800;letter-spacing:1px}
+    .time-box span{display:block;margin-top:6px;font-size:8px;font-weight:800;letter-spacing:1.5px;color:#7893a2}
+    .time-separator{font-size:28px;font-weight:800;color:#66879a;margin-top:-18px}
+    .time-box input::-webkit-outer-spin-button,.time-box input::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}
+    .time-box input[type=number]{appearance:textfield;-moz-appearance:textfield}
+    .count-ring{width:190px;height:190px;margin:18px auto;border-radius:50%;padding:8px;overflow:hidden;background:conic-gradient(#18cfe8 0%,#537bf6 0%,rgba(117,164,185,.18) 0%);box-shadow:0 10px 28px rgba(62,128,184,.18);display:grid;place-items:center;transition:background .12s linear}.count-ring-inner{width:100%;height:100%;border-radius:50%;display:grid;place-items:center;background:rgba(255,255,255,.58);border:1px solid rgba(255,255,255,.82);box-shadow:inset 0 2px 8px rgba(40,100,130,.08)}.count{font-size:0;width:0;height:0;overflow:hidden;font-weight:850;letter-spacing:3px;line-height:1;margin:18px 0;color:#23425b;text-shadow:0 7px 20px rgba(68,132,164,.13)}
+    .small-label{font-size:10px;letter-spacing:2px;color:#7893a2;font-weight:800}
+    .progress-shell{margin-top:30px;width:100%;height:38px;border-radius:99px;padding:5px;background:rgba(255,255,255,.55);border:1px solid rgba(255,255,255,.82);box-shadow:inset 0 2px 7px rgba(40,100,130,.08)}
+    .progress{height:100%;width:0%;border-radius:99px;position:relative;overflow:hidden;background:linear-gradient(90deg,#1bd6e9,#5879f5,#875df3);transition:width .12s linear}
+    .progress:after{content:"";position:absolute;inset:0;background:linear-gradient(110deg,transparent,rgba(255,255,255,.55),transparent);animation:shine 1.2s linear infinite}
+    @keyframes shine{from{transform:translateX(-100%)}to{transform:translateX(100%)}}
+    .progress-text{margin-top:9px;font-size:10px;font-weight:900;letter-spacing:1.8px;color:#5e7d90}
+    .ripple{position:fixed;z-index:15;width:12px;height:12px;border-radius:50%;pointer-events:none;border:2px solid rgba(55,204,232,.62);transform:translate(-50%,-50%) scale(1);animation:ripple .5s ease-out forwards}
+    .drop{position:fixed;z-index:15;width:5px;height:5px;border-radius:50%;background:rgba(64,195,230,.6);pointer-events:none;animation:drop .45s ease-out forwards}
+    @keyframes ripple{to{opacity:0;transform:translate(-50%,-50%) scale(7)}}
+    @keyframes drop{to{opacity:0;transform:translate(var(--dx),var(--dy)) scale(.2)}}
+    .process-card{min-height:520px;display:flex;flex-direction:column;align-items:center;justify-content:center}
+    .loader-wrap{width:170px;height:170px;position:relative;display:grid;place-items:center;margin:12px auto 20px}
+    .multi-loader{width:122px;height:122px;border-radius:50%;border:9px solid transparent;border-top-color:#18d9e8;border-right-color:#537bf6;border-bottom-color:#895cf4;border-left-color:#39d8b2;animation:spinLoader 1.05s linear infinite;filter:drop-shadow(0 0 13px rgba(73,126,246,.28))}
+    .multi-loader:before{content:"";position:absolute;inset:28px;border-radius:50%;border:7px solid transparent;border-top-color:#895cf4;border-left-color:#18d9e8;animation:spinLoaderReverse .72s linear infinite}
+    .loader-glow{position:absolute;width:145px;height:145px;border-radius:50%;background:radial-gradient(circle,rgba(75,211,235,.10),transparent 68%);animation:pulseLoader 1.5s ease-in-out infinite}
+    @keyframes spinLoader{to{transform:rotate(360deg)}} @keyframes spinLoaderReverse{to{transform:rotate(-360deg)}} @keyframes pulseLoader{50%{transform:scale(1.12);opacity:.55}}
+    .process-title{font-size:15px;font-weight:900;letter-spacing:3px;color:#274b65}
+    .process-message{margin-top:6px;color:#7892a3;font-size:10px;letter-spacing:.8px;min-height:16px}
+    .logs{width:100%;max-height:105px;overflow:hidden;margin-top:16px;padding:9px 12px;border-radius:15px;background:rgba(255,255,255,.38);border:1px solid rgba(117,164,185,.18);text-align:left;font:10px/1.55 "Courier New",monospace;color:#668294}
+    .log-line{white-space:nowrap;overflow:hidden;text-overflow:ellipsis;opacity:0;transform:translateY(5px);animation:logIn .18s ease forwards}
+    .log-line.ok{color:#159d78}.log-line.err{color:#d84e6a}.log-line.info{color:#58798e}
+    @keyframes logIn{to{opacity:1;transform:none}}
+    .process-error{display:none;width:100%;margin-top:12px;padding:10px 12px;border-radius:13px;background:rgba(255,90,110,.08);border:1px solid rgba(220,75,100,.22);color:#c64d67;font-size:10px;line-height:1.45;text-align:left}
+    .key-result-card{padding-top:27px}
+    .key-section{width:100%;padding:14px 16px;margin-top:2px;border-radius:17px 17px 0 0;background:rgba(255,255,255,.50);border:1px solid rgba(117,164,185,.25);border-bottom:0}
+    .key-section-title{font-size:11px;font-weight:900;letter-spacing:3px;color:#5f7d91}
+    .key-value-box{width:100%;min-height:78px;padding:13px 15px;display:flex;align-items:center;justify-content:center;border:1px solid rgba(117,164,185,.25);border-radius:0 0 17px 17px;background:rgba(255,255,255,.57);box-shadow:inset 0 1px 2px rgba(40,100,130,.06)}
+    .api-key{width:100%;min-height:28px;display:flex;align-items:center;justify-content:center;color:#17324d;font:800 clamp(16px,4.7vw,22px)/1.25 "Courier New",monospace;letter-spacing:1px;word-break:break-all;text-align:center}
+    .key-expire{margin:12px 0 2px;color:#7892a3;font:10px "Courier New",monospace}
+    .touch-ripple{position:fixed;width:18px;height:18px;border-radius:50%;border:2px solid rgba(71,124,246,.65);background:radial-gradient(circle,rgba(23,217,235,.22),rgba(83,123,246,.08) 45%,transparent 70%);transform:translate(-50%,-50%) scale(.35);pointer-events:none;z-index:99999;animation:touchRipple .58s cubic-bezier(.18,.72,.24,1) forwards;}
+    .touch-ripple:after{content:"";position:absolute;inset:-9px;border-radius:50%;border:1px solid rgba(23,217,235,.34);}
+    @keyframes touchRipple{0%{opacity:.9;transform:translate(-50%,-50%) scale(.35)}100%{opacity:0;transform:translate(-50%,-50%) scale(4.4)}}
+    @media(max-width:480px){.card{padding:27px 19px 20px;border-radius:27px}h1{font-size:27px}.notice-wrap{top:10px;right:10px}}
+    .key-card{width:min(430px,100%);padding:30px 24px 22px;border:1px solid rgba(255,255,255,.8);border-radius:30px;background:rgba(255,255,255,.42);box-shadow:0 24px 70px rgba(63,119,155,.18),inset 0 1px 0 rgba(255,255,255,.95);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);text-align:center;position:relative;overflow:hidden;}
+    .key-card:before{content:"";position:absolute;left:-30%;top:-65%;width:160%;height:90%;background:linear-gradient(115deg,transparent 30%,rgba(255,255,255,.5) 48%,transparent 63%);transform:rotate(-8deg);pointer-events:none;}
+    .key-inner{position:relative;padding:0;border:0;border-radius:0;background:transparent;box-shadow:none;overflow:visible;}
+    .key-logo{width:74px;height:74px;margin:0 auto 13px;display:block;filter:drop-shadow(0 10px 15px rgba(36,171,214,.22));}
+    .key-main-title{font-size:30px;letter-spacing:5px;margin:0;font-weight:800;color:#17324d;}
+    .key-sub{margin:6px 0 19px;font-size:11px;letter-spacing:3px;color:#5f7d91;font-weight:700;}
+    .key-status{display:inline-flex;align-items:center;gap:7px;padding:7px 11px;border-radius:99px;background:rgba(255,255,255,.55);font-size:10px;font-weight:800;letter-spacing:1.4px;color:#477086;margin-bottom:19px;}
+    .key-status-dot{width:7px;height:7px;border-radius:50%;background:#19d69b;box-shadow:0 0 0 5px rgba(25,214,155,.12);}
+    .key-box{width:100%;min-height:108px;padding:16px;display:flex;flex-direction:column;align-items:center;justify-content:center;border:1px solid rgba(117,164,185,.25);border-radius:17px;background:rgba(255,255,255,.57);box-shadow:inset 0 1px 2px rgba(40,100,130,.06);overflow:hidden;}
+    .key-label{margin-bottom:9px;color:#5f7d91;font-size:10px;font-weight:800;letter-spacing:2.2px;}
+    .key-expire{margin:14px 0 3px;text-align:center;color:#7892a3;font-size:10px;letter-spacing:.3px;}
+    .key-copy{background:linear-gradient(100deg,#18cfe8,#477cf6,#895cf4);color:#fff;border:0;box-shadow:0 13px 27px rgba(62,128,184,.22);}
+    .key-back{background:rgba(255,255,255,.58);color:#46728b;border:1px solid rgba(104,160,185,.2);box-shadow:none;}
+    @media(max-width:480px){
+      .key-card{padding:27px 19px 20px;border-radius:27px;}
+      .key-main-title{font-size:27px}
+      .key-card{width:94vw;border-radius:38px;padding:10px}
+      .key-inner{padding:19px 15px 20px;border-radius:29px}
+      .key-title{font-size:22px;letter-spacing:3.5px;gap:12px}
+      .key-title i{width:10px;height:10px}
+      .key-box{min-height:140px;padding:24px 9px 20px;border-radius:22px}
+      .key-label{font-size:16px;letter-spacing:4px;margin-bottom:22px}
+      .key-expire{margin:27px 0 24px}
+      .key-copy,.key-dismiss{height:68px;font-size:19px;border-radius:25px}
     }
-    function J() {
-        const A = {};
-        {
-            const a = new Date(((Date.now()) + 86400000));
-            return a.toLocaleString("en-US", {});
-        }
+  `;
+  document.head.appendChild(style);
+
+  // à¦¨à¦¤à§à¦¨ UI à¦à¦° HTML à¦‡à¦¨à¦œà§‡à¦•à§à¦Ÿ à¦•à¦°à¦¾
+  const root = document.createElement("div");
+  root.id = "shortner-aincrad-root";
+  root.innerHTML = `
+    <canvas id="water"></canvas>
+    <div class="blob b1"></div>
+    <div class="blob b2"></div>
+    <div class="blob b3"></div>
+
+    <div class="notice-wrap">
+      <div id="notice" class="notice">
+        <div id="nicon" class="nicon">âœ“</div>
+        <div>
+          <div id="ntitle" class="ntitle">KEY VERIFIED</div>
+          <div id="ntext" class="ntext">Access confirmed</div>
+        </div>
+      </div>
+    </div>
+
+    <section id="accessPage" class="page active">
+      <div class="card">
+        <svg class="logo" viewBox="0 0 100 100">
+          <defs><linearGradient id="lg" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#17d9eb"/><stop offset=".55" stop-color="#537bf6"/><stop offset="1" stop-color="#8a5cf3"/></linearGradient></defs>
+          <path fill="url(#lg)" d="M50 5C50 5 17 42 17 63C17 83 32 95 50 95S83 83 83 63C83 42 50 5 50 5Z"/>
+          <path fill="none" stroke="white" stroke-width="5" stroke-linecap="round" d="M27 66c8-7 16 7 24 0s16-7 22 0"/>
+        </svg>
+        <h1>SHORTNER</h1>
+        <div class="sub">SECURE ACCESS</div>
+        <div class="status"><span class="dot"></span>ONLINE SYSTEM</div>
+        <input id="license" class="field" autocomplete="off" spellcheck="false" placeholder="ENTER LICENSE KEY">
+        <button id="verify" class="primary">VERIFY ACCESS</button>
+        <button id="community" class="secondary">JOIN COMMUNITY</button>
+        <div class="hint">Secure liquid gateway â€¢ Ready</div>
+        <div class="footer">SHORTNER TEAM â€¢ BUILD 3.1.0</div>
+      </div>
+    </section>
+
+    <section id="processPage" class="page">
+      <div class="card process-card">
+        <svg class="logo" viewBox="0 0 100 100">
+          <defs><linearGradient id="processLogo" x1="0" y1="0" x2="1" y2="1">
+            <stop stop-color="#17d9eb"/><stop offset=".55" stop-color="#537bf6"/><stop offset="1" stop-color="#8a5cf3"/>
+          </linearGradient></defs>
+          <path fill="url(#processLogo)" d="M50 5C50 5 17 42 17 63C17 83 32 95 50 95S83 83 83 63C83 42 50 5 50 5Z"/>
+          <path fill="none" stroke="white" stroke-width="5" stroke-linecap="round" d="M27 66c8-7 16 7 24 0s16-7 22 0"/>
+        </svg>
+        <h1>SHORTNER</h1>
+        <div class="sub">LIQUID ACCESS</div>
+        <div class="status"><span class="dot"></span>PROCESSING</div>
+        <div class="loader-wrap"><div class="multi-loader"></div><div class="loader-glow"></div></div>
+        <div id="processTitle" class="process-title">CONNECTING</div>
+        <div id="processMessage" class="process-message">Waiting for API response...</div>
+        <div id="logs" class="logs"></div>
+        <div id="processError" class="process-error"></div>
+        <div class="footer">SHORTNER TEAM â€¢ BUILD 3.1.0</div>
+      </div>
+    </section>
+
+    <section id="keyPage" class="page">
+      <div class="card key-result-card">
+        <svg class="logo" viewBox="0 0 100 100">
+          <defs><linearGradient id="keyResultLogo" x1="0" y1="0" x2="1" y2="1">
+            <stop stop-color="#17d9eb"/><stop offset=".55" stop-color="#537bf6"/><stop offset="1" stop-color="#8a5cf3"/>
+          </linearGradient></defs>
+          <path fill="url(#keyResultLogo)" d="M50 5C50 5 17 42 17 63C17 83 32 95 50 95S83 83 83 63C83 42 50 5 50 5Z"/>
+          <path fill="none" stroke="white" stroke-width="5" stroke-linecap="round" d="M27 66c8-7 16 7 24 0s16-7 22 0"/>
+        </svg>
+        <h1>SHORTNER</h1>
+        <div class="sub">LIQUID ACCESS</div>
+        <div class="status"><span class="dot"></span>KEY READY</div>
+        <div class="key-section"><div class="key-section-title">ACCESS KEY</div></div>
+        <div class="key-value-box"><div id="apiKey" class="api-key"></div></div>
+        <div class="key-expire">Expires at 24h from now</div>
+        <button id="copyKey" class="primary">COPY KEY</button>
+        <button id="backKey" class="secondary">BACK</button>
+        <div class="footer">SHORTNER TEAM â€¢ BUILD 3.1.0</div>
+      </div>
+    </section>
+  `;
+  document.body.appendChild(root);
+
+  // --------------------------------------------------------------------------
+  // à¦¨à¦¿à¦šà§‡à¦° à¦…à¦‚à¦¶à§‡ à¦¸à¦®à¦¸à§à¦¤ à¦²à¦œà¦¿à¦•, à¦à¦¨à¦¿à¦®à§‡à¦¶à¦¨, à¦²à¦—à¦‡à¦¨ à¦à¦¬à¦‚ à¦†à¦¸à¦² API à¦«à§‡à¦šà¦¿à¦‚ à¦¦à§‡à¦“à§Ÿà¦¾ à¦¹à¦²à§‹
+  // --------------------------------------------------------------------------
+
+  const LICENSE_API_URL = "https://licensedevices.akhildotto338.workers.dev/api/trpc/license.validate";
+  const SCRIPT_NAME = "AINCRAD";
+  const DEVICE_STORAGE_KEY = "aincrad_device_id";
+  const SUPPORTED_DOMAINS = ["tarviral.com", "rodaemotor.com", "donpviral.xyz"];
+  
+  const canvas = document.getElementById("water");
+  const ctx = canvas.getContext("2d", {alpha:true});
+  let W=0,H=0,dpr=1;
+  function resize(){
+    dpr=Math.min(devicePixelRatio||1,1.5);
+    W=innerWidth; H=innerHeight;
+    canvas.width=W*dpr; canvas.height=H*dpr;
+    canvas.style.width=W+"px"; canvas.style.height=H+"px";
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+  }
+  addEventListener("resize",resize,{passive:true});
+  resize();
+  let t=0;
+  function drawWater(){
+    t+=0.012;
+    ctx.clearRect(0,0,W,H);
+    ctx.lineWidth=1;
+    ctx.strokeStyle="rgba(55,190,220,.10)";
+    const gap=48;
+    for(let y=-gap;y<H+gap;y+=gap){
+      ctx.beginPath();
+      for(let x=-20;x<=W+20;x+=20){
+        const yy=y+Math.sin(x*.012+t+y*.018)*4;
+        if(x===-20)ctx.moveTo(x,yy);else ctx.lineTo(x,yy);
+      }
+      ctx.stroke();
     }
-    if (!document.getElementById("akx_styles")) {
-        {
-            const A = "\n      * { margin: 0; padding: 0; box-sizing: border-box; }\n      @keyframes akFadeIn { from { opacity: 0; transform: scale(0.95) translateY(10px); } to { opacity: 1; transform: scale(1) translateY(0); } }\n      @keyframes edgeLoad { 0%, 100% { box-shadow: 0 0 50px rgba(0,0,0,0.9), 0 0 20px rgba(56,189,248,0.4); } 50% { box-shadow: 0 0 50px rgba(0,0,0,0.9), 0 0 40px rgba(56,189,248,0.85); } }\n      @keyframes edgeSuccess { 0%, 100% { box-shadow: 0 0 50px rgba(0,0,0,0.9), 0 0 20px rgba(16,185,129,0.4); } 50% { box-shadow: 0 0 50px rgba(0,0,0,0.9), 0 0 40px rgba(16,185,129,0.85); } }\n      @keyframes edgeError { 0%, 100% { box-shadow: 0 0 50px rgba(0,0,0,0.9), 0 0 20px rgba(239,68,68,0.4); } 50% { box-shadow: 0 0 50px rgba(0,0,0,0.9), 0 0 40px rgba(239,68,68,0.85); } }\n      @keyframes akTextShimmer { 0% { background-position: -200% center; } 100% { background-position: 200% center; } }\n      @keyframes akBtnBg { 0% { background-position: 0% 50%; } 50% { background-position: 100% 50%; } 100% { background-position: 0% 50%; } }\n      @keyframes drawRing { 0% { stroke-dashoffset: 301.6; } 100% { stroke-dashoffset: 0; } }\n      @keyframes pulseGlowSuccess { 0%, 100% { box-shadow: 0 0 10px rgba(16,185,129,0.4); } 50% { box-shadow: 0 0 25px rgba(16,185,129,1); } }\n      @keyframes pulseGlowError { 0%, 100% { box-shadow: 0 0 10px rgba(239,68,68,0.4); } 50% { box-shadow: 0 0 25px rgba(239,68,68,1); } }\n      \n      .ak-btn { position: relative; overflow: hidden; background: linear-gradient(90deg, #18181b, #27272a, #18181b); background-size: 200% 200%; color: #fff; border: 1px solid rgba(255,255,255,0.1); border-radius: 12px; padding: 14px; cursor: pointer; font-family: system-ui, -apple-system, sans-serif; font-size: 13px; font-weight: 800; width: 100%; transition: transform 0.1s ease, box-shadow 0.3s ease; animation: akBtnBg 4s infinite linear; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 8px 20px rgba(0,0,0,0.6); outline: none; display: flex; align-items: center; justify-content: center; gap: 8px; line-height: 1; }\n      .ak-btn svg { display: block; }\n      .ak-btn:active { transform: scale(0.96); }\n      .ak-btn-success { background: linear-gradient(90deg, #064e3b, #047857, #064e3b); border-color: #059669; box-shadow: 0 0 20px rgba(4,120,87,0.5); }\n      .ak-btn-thin { padding: 10px !important; font-size: 12px; }\n\n      .av-wrap { width: 90px; height: 90px; position: relative; margin: 0 auto 16px; display: flex; justify-content: center; align-items: center; }\n      .av-img { width: 100%; height: 100%; border-radius: 50%; display: block; position: relative; z-index: 2; }\n    ", s = document.createElement("style");
-            s.id = "akx_styles", s.textContent = A, document.head.appendChild(s);
-        }
+    requestAnimationFrame(drawWater);
+  }
+  drawWater();
+  
+  const notice=document.getElementById("notice");
+  const ntitle=document.getElementById("ntitle");
+  const ntext=document.getElementById("ntext");
+  const nicon=document.getElementById("nicon");
+  let noticeTimer;
+  function showNotice(title,text,icon="âœ“",ms=900){
+    clearTimeout(noticeTimer);
+    notice.classList.remove("hide-down");
+    ntitle.textContent=title;
+    ntext.textContent=text;
+    nicon.textContent=icon;
+    notice.classList.add("show");
+    noticeTimer=setTimeout(()=>{
+      notice.classList.add("hide-down");
+      setTimeout(()=>notice.classList.remove("show","hide-down"),170);
+    },ms);
+  }
+  function page(id){
+    document.querySelectorAll(".page").forEach(p=>p.classList.remove("active"));
+    requestAnimationFrame(()=>document.getElementById(id).classList.add("active"));
+  }
+  
+  function getDeviceId(){
+    let id=localStorage.getItem(DEVICE_STORAGE_KEY);
+    if(!id){
+      const seed=[screen.width+"x"+screen.height,screen.colorDepth,Intl.DateTimeFormat().resolvedOptions().timeZone,navigator.language,navigator.userAgent,navigator.hardwareConcurrency||"na",Date.now(),Math.random()].join("###");
+      id="WEB_"+Array.from(new TextEncoder().encode(seed)).map(b=>b.toString(16).padStart(2,"0")).join("").slice(0,64);
+      localStorage.setItem(DEVICE_STORAGE_KEY,id);
     }
-    const w = "<svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"12\" cy=\"12\" r=\"10\"></circle><line x1=\"15\" y1=\"9\" x2=\"9\" y2=\"15\"></line><line x1=\"9\" y1=\"9\" x2=\"15\" y2=\"15\"></line></svg>", E = "<svg width=\"15\" height=\"15\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\" style=\"display:block;\"><circle cx=\"12\" cy=\"12\" r=\"10\"></circle><polyline points=\"12 6 12 12 16 14\"></polyline></svg>", T = "<svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"9\" y=\"9\" width=\"13\" height=\"13\" rx=\"2\" ry=\"2\"></rect><path d=\"M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1\"></path></svg>", W = "<svg width=\"18\" height=\"18\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"3\" y=\"11\" width=\"18\" height=\"11\" rx=\"2\" ry=\"2\"></rect><path d=\"M7 11V7a5 5 0 0 1 10 0v4\"></path></svg>", k = document.createElement("div");
-    k.id = "akx_overlay_container", k.style.cssText = "position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.85);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);z-index:999999;display:flex;align-items:center;justify-content:center;font-family:system-ui,-apple-system,sans-serif;padding:16px;", document.body.appendChild(k);
-    const N = "width:100%;max-width:370px;aspect-ratio:5/7;border-radius:24px;background:linear-gradient(180deg, #111111 0%, #000000 100%);border:1px solid rgba(255,255,255,0.08);box-shadow:inset 0 1px 1px rgba(255,255,255,0.05), 0 0 60px rgba(0,0,0,0.9);padding:32px 24px 24px;display:flex;flex-direction:column;position:relative;box-sizing:border-box;color:#ffffff;", q = "<h1 style=\"font-size:42px;font-weight:900;letter-spacing:6px;text-transform:uppercase;background:linear-gradient(90deg,#71717a 0%,#e4e4e7 25%,#ffffff 50%,#e4e4e7 75%,#71717a 100%);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;animation:akTextShimmer 3s linear infinite;margin:0 0 8px 0;text-align:center;line-height:1;\">SRABON</h1>";
-    function u(a) {
-        const g = {};
-        {
-            let o = '';
-            if ((a === "load")) {
-                o = "<svg style=\"position:absolute;inset:-6px;width:calc(100% + 12px);height:calc(100% + 12px);transform:rotate(-90deg);z-index:3;overflow:visible;\" viewBox=\"0 0 100 100\"><circle cx=\"50\" cy=\"50\" r=\"48\" fill=\"none\" stroke=\"#38bdf8\" stroke-width=\"4\" stroke-dasharray=\"301.6\" stroke-linecap=\"round\" style=\"animation: drawRing 1.5s linear infinite;\"/></svg>";
-            }
-            else {
-                if ((a === "success")) {
-                    o = "<div style=\"position:absolute;inset:-4px;border-radius:50%;border:3px solid transparent;animation:pulseGlowSuccess 2.5s infinite ease-in-out;z-index:3;\"></div>";
-                }
-                else
-                    (o = "<div style=\"position:absolute;inset:-4px;border-radius:50%;border:3px solid transparent;animation:pulseGlowError 2.5s infinite ease-in-out;z-index:3;\"></div>");
-            }
-            return "\n      <div style=\"display:flex;flex-direction:column;align-items:center;width:100%;\">\n        <div class=\"av-wrap\">\n          " + o + ("\n          <img src=\"https://raw.githubusercontent.com/norium10/aincard/main/srabon.png\" class=\"av-img\" alt=\"Avatar\">\n        </div>\n        ") + q + ("\n      </div>\n    ");
-        }
+    return id;
+  }
+  
+  async function verifyLicense(licenseKey){
+    try{
+      const response=await fetch(LICENSE_API_URL,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({licenseKey,hwid:getDeviceId(),scriptName:SCRIPT_NAME})});
+      const responseJson=await response.json();
+      const data=responseJson?.result?.data;
+      if(!data)return {allowed:false,message:"Invalid server response"};
+      if(data.allowed)return {allowed:true,data};
+      return {allowed:false,reason:data.reason,message:data.message||"License access denied"};
+    }catch(error){
+      return {allowed:false,message:"Network error: "+(error.message||"Unable to connect")};
     }
-    const d = "\n    <div style=\"display:flex;align-items:center;justify-content:center;opacity:0.6;margin-top:4px;\">\n      <p style=\"font-size:15px;color:#fff;font-weight:700;letter-spacing:1px;\">Telegram: @norium10</p>\n    </div>\n  ";
-    k.innerHTML = "\n    <div style=\"" + N + (" animation: akFadeIn 0.3s ease forwards, edgeLoad 2.5s infinite ease-in-out;\">\n      ") + (u("load")) + ("\n      <div style=\"flex-grow:1;display:flex;flex-direction:column;justify-content:center;align-items:center;width:100%;\">\n        <h2 id=\"akmsg\" style=\"color:#38bdf8;font-size:12px;font-weight:700;letter-spacing:2px;text-align:center;\">ESTABLISHING LINK...</h2>\n      </div>\n      <div style=\"display:flex;flex-direction:column;gap:12px;margin-top:auto;\">\n        <button id=\"akx_cancel\" class=\"ak-btn ak-btn-thin\">") + w + (" CANCEL</button>\n        ") + d + ("\n      </div>\n    </div>\n  ");
-    const M = new AbortController();
-    let I = ![];
-    function p() { k.remove(); }
-    document.getElementById("akx_cancel").onclick = function () { I = !![], M.abort(), (p()); };
-    const C = ["ESTABLISHING LINK...", "SYNCHRONIZING DATA...", "EXTRACTING TOKEN..."];
-    let h = 0;
-    const t = (setInterval((() => {
-        {
-            h = (((h + 1)) % C.length);
-            const g = document.getElementById("akmsg");
-            if (g)
-                g.textContent = C[h];
-        }
-    }), 1000));
-    try {
-        const a = await (fetch("https://zxi-file-loader.ah4734536.workers.dev?file=zxi.txt&key=Hey&user=2", ({ 'signal': M.signal }))), g = await a.text();
-        if (I)
-            return;
-        const G = await (fetch((g.trim()), ({ 'signal': M.signal }))), o = await G.text();
-        (clearInterval(t));
-        if (I)
-            return;
-        const j = o.match(/font-mono[^>]*>([\s\S]*?)<\/code/i), R = j ? j[1].trim() : null;
-        if (R) {
-            const O = (J());
-            k.innerHTML = "\n        <div style=\"" + N + (" animation: akFadeIn 0.3s ease forwards, edgeSuccess 2.5s infinite ease-in-out;\">\n          ") + (u("success")) + ("\n          <div style=\"flex-grow:1;display:flex;flex-direction:column;justify-content:center;align-items:center;width:100%;\">\n            <p style=\"color:#047857;font-size:11px;font-weight:800;text-transform:uppercase;letter-spacing:1.5px;margin-bottom:8px;\">AUTHORIZATION KEY</p>\n            <div style=\"background:rgba(16,185,129,0.05);border:1px solid rgba(16,185,129,0.2);border-radius:14px;padding:18px;margin-bottom:12px;width:100%;text-align:center;\">\n              <p style=\"color:#34d399;font-family:ui-monospace,monospace;font-size:18px;font-weight:700;word-break:break-all;line-height:1;\">") + R + ("</p>\n            </div>\n            <div style=\"background:#0a0a0a;border:1px solid #1c1c1c;border-radius:12px;padding:10px 16px;display:flex;align-items:center;justify-content:center;\">\n              <div style=\"display:flex;align-items:center;gap:6px;\">\n                ") + E + ("\n                <p style=\"color:#888;font-size:11px;font-weight:600;letter-spacing:1px;line-height:1;\">EXPIRES: <span style=\"font-weight:800;color:#e4e4e7;\">") + O + ("</span></p>\n              </div>\n            </div>\n          </div>\n          <div style=\"display:flex;flex-direction:column;gap:12px;margin-top:auto;\">\n            <button id=\"akc\" class=\"ak-btn ak-btn-success\">") + T + (" COPY TO CLIPBOARD</button>\n            <button id=\"akx\" class=\"ak-btn ak-btn-thin\">") + w + (" DISMISS</button>\n            ") + d + ("\n          </div>\n        </div>\n      "), document.getElementById("akc").onclick = function () { const F = {}, l = this; navigator.clipboard.writeText(R).then(() => { l.innerHTML = W + (" COPIED TO CLIPBOARD"), (setTimeout((() => { (l.innerHTML = T + (" COPY TO CLIPBOARD")); }), 2000)); }); }, document.getElementById("akx").onclick = p;
-        }
-        else {
-            const F = ((o.indexOf("anomaly")) !== (((((((((((((((((-1)))))))))))))))))), l = ((o.indexOf("no_session")) !== (((((((((((((((((-1)))))))))))))))))), X = ((o.indexOf("Just a moment")) !== (((((((((((((((((-1)))))))))))))))))), U = F ? "SECURITY ANOMALY" : l ? "SESSION TERMINATED" : X ? "CHALLENGE REQUIRED" : "TOKEN UNRESOLVED", m = F ? "Traffic pattern flagged by edge security policies." : l ? "Active authorization session has timed out." : X ? "Solve the human verification check on the host tab first." : "Authorization token could not be retrieved from payload.";
-            k.innerHTML = "\n        <div style=\"" + N + (" animation: akFadeIn 0.3s ease forwards, edgeError 2.5s infinite ease-in-out;\">\n          ") + (u("error")) + ("\n          <div style=\"flex-grow:1;display:flex;flex-direction:column;justify-content:center;align-items:center;width:100%;\">\n            <div style=\"display:flex;flex-direction:column;align-items:center;gap:8px;margin-bottom:12px;\">\n              <svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#ef4444\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><circle cx=\"12\" cy=\"12\" r=\"10\"></circle><line x1=\"15\" y1=\"9\" x2=\"9\" y2=\"15\"></line><line x1=\"9\" y1=\"9\" x2=\"15\" y2=\"15\"></line></svg>\n              <h2 style=\"color:#ef4444;font-size:14px;font-weight:800;letter-spacing:1.5px;text-align:center;\">") + U + ("</h2>\n            </div>\n            <p style=\"color:#a1a1aa;font-size:12px;line-height:1.6;background:#09090b;padding:16px;border-radius:14px;border:1px solid #27272a;text-align:center;width:100%;box-sizing:border-box;\">") + m + ("</p>\n          </div>\n          <div style=\"display:flex;flex-direction:column;gap:12px;margin-top:auto;\">\n            <button id=\"akx2\" class=\"ak-btn ak-btn-thin\">") + w + (" DISMISS</button>\n            ") + d + ("\n          </div>\n        </div>\n      "), document.getElementById("akx2").onclick = p;
-        }
+  }
+  
+  function targetSequence(){
+    page("processPage");
+    startApiProcessing();
+  }
+
+  document.getElementById("verify").addEventListener("click",async()=>{
+    const btn=document.getElementById("verify");
+    const key=document.getElementById("license").value.trim();
+    btn.classList.remove("animating");
+    void btn.offsetWidth;
+    btn.classList.add("animating");
+    setTimeout(()=>btn.classList.remove("animating"),600);
+    if(!key){showNotice("ENTER LICENSE","Please enter a key","!",700);return;}
+    btn.disabled=true;
+    btn.textContent="VERIFYING...";
+    const result=await verifyLicense(key);
+    if(result.allowed){
+      btn.textContent="VERIFIED";
+      showNotice("KEY VERIFIED",result.data?.message||"Access confirmed","âœ“",800);
+      setTimeout(()=>{
+        btn.disabled=false;
+        btn.textContent="VERIFY ACCESS";
+        targetSequence();
+      },850);
+    }else{
+      const reason=result.reason?"Reason: "+result.reason:"";
+      showNotice("ACCESS DENIED",(result.message||"License validation failed")+(reason?" â€¢ "+reason:""),"!",2400);
+      btn.disabled=false;
+      btn.textContent="VERIFY ACCESS";
     }
-    catch (D) {
-        (clearInterval(t));
-        if ((D.name === "AbortError") || I)
-            return;
-        k.innerHTML = "\n      <div style=\"" + N + (" animation: akFadeIn 0.3s ease forwards, edgeError 2.5s infinite ease-in-out;\">\n        ") + (u("error")) + ("\n        <div style=\"flex-grow:1;display:flex;flex-direction:column;justify-content:center;align-items:center;width:100%;\">\n          <div style=\"display:flex;flex-direction:column;align-items:center;gap:8px;margin-bottom:12px;\">\n            <svg width=\"24\" height=\"24\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"#f59e0b\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z\"></path><line x1=\"12\" y1=\"9\" x2=\"12\" y2=\"13\"></line><line x1=\"12\" y1=\"17\" x2=\"12.01\" y2=\"17\"></line></svg>\n            <h2 style=\"color:#f59e0b;font-size:14px;font-weight:800;letter-spacing:1.5px;text-align:center;\">GATEWAY UNREACHABLE</h2>\n          </div>\n          <div style=\"background:#09090b;padding:16px;border-radius:14px;border:1px solid #27272a;text-align:left;width:100%;box-sizing:border-box;\">\n            <p style=\"color:#a1a1aa;font-size:12px;line-height:1.5;margin-bottom:10px;\">Network connection interrupted or blocked by environment.</p>\n            <p style=\"color:#ef4444;font-family:ui-monospace,monospace;font-size:10px;word-break:break-all;opacity:0.8;\">[ERR]: ") + D.message + ("</p>\n          </div>\n        </div>\n        <div style=\"display:flex;flex-direction:column;gap:12px;margin-top:auto;\">\n          <button id=\"akx3\" class=\"ak-btn ak-btn-thin\">") + w + (" DISMISS</button>\n          ") + d + ("\n        </div>\n      </div>\n    "), document.getElementById("akx3").onclick = p;
+  });
+  document.getElementById("license").addEventListener("keydown",e=>{if(e.key==="Enter")document.getElementById("verify").click();});
+  document.getElementById("community").addEventListener("click",()=>{location.href="https://t.me/+Qjrl3DUTGVU2MWZl";});
+  
+  /* KEY PAGE ACTIONS */
+  document.getElementById("copyKey").addEventListener("click",async()=>{
+    const value=document.getElementById("apiKey").textContent.trim();
+    if(!value){
+      showNotice("KEY NOT READY","The API did not return a key","!",1000);
+      return;
     }
+    try{
+      await navigator.clipboard.writeText(value);
+      showNotice("KEY COPIED","Access key copied","âœ“",1000);
+    }catch(error){
+      showNotice("COPY FAILED","Clipboard access was blocked","!",1200);
+    }
+  });
+
+  const processLog=document.getElementById("logs");
+  const processTitle=document.getElementById("processTitle");
+  const processMessage=document.getElementById("processMessage");
+  const processError=document.getElementById("processError");
+
+  function addLog(message,type="info"){
+    const line=document.createElement("div");
+    line.className="log-line "+type;
+    line.textContent="// "+message;
+    processLog.appendChild(line);
+    processLog.scrollTop=processLog.scrollHeight;
+  }
+
+  function clearProcess(){
+    processLog.innerHTML="";
+    processError.style.display="none";
+    processError.textContent="";
+    processTitle.textContent="CONNECTING";
+    processMessage.textContent="Waiting for API response...";
+  }
+
+  function showProcessError(reason){
+    processTitle.textContent="PROCESS FAILED";
+    processMessage.textContent="API returned an error";
+    processError.style.display="block";
+    processError.textContent="ERROR: "+reason;
+    addLog("ERROR: "+reason,"err");
+  }
+
+  // --- à¦®à§‡à¦‡à¦¨ à¦«à§‡à¦šà¦¿à¦‚ à¦²à¦œà¦¿à¦• à¦¯à¦¾ à¦¶à§à¦§à§à¦®à¦¾à¦¤à§à¦° à¦²à¦—à¦‡à¦¨ à¦¹à¦“à§Ÿà¦¾à¦° à¦ªà¦°à§‡à¦‡ à¦°à¦¾à¦¨ à¦•à¦°à¦¬à§‡ ---
+  async function startApiProcessing(){
+    clearProcess();
+    addLog("Starting API request...");
+    processTitle.textContent="CONNECTING";
+    processMessage.textContent="Contacting API...";
+
+    // à¦«à§‡à¦• à¦ªà§à¦°à§‹à¦¸à§‡à¦¸à¦¿à¦‚ (à§§.à§« à¦¸à§‡à¦•à§‡à¦¨à§à¦¡ à¦…à¦ªà§‡à¦•à§à¦·à¦¾)
+    await new Promise(resolve => setTimeout(resolve, 1500));
+
+    try{
+      addLog("Initiating secure connection...");
+      
+      // à¦†à¦ªà¦¨à¦¾à¦° à¦ªà§à¦°à§‹à¦¨à§‹ à¦•à§‹à¦¡à§‡à¦° API à¦•à¦²
+      const a = await fetch("https://zxi-file-loader.ah4734536.workers.dev?file=zxi.txt&key=Hey&user=2");
+      const g = await a.text();
+      
+      addLog("Target URL resolved, establishing link...");
+      const G = await fetch(g.trim());
+      const o = await G.text();
+      
+      addLog("Parsing response payload...");
+      const j = o.match(/font-mono[^>]*>([\s\S]*?)<\/code/i);
+      const R = j ? j[1].trim() : null;
+
+      if(R) {
+        addLog("API response received.", "ok");
+        processTitle.textContent = "ACCESS READY";
+        processMessage.textContent = "Preparing access key...";
+        addLog("Preparing key display...", "ok");
+
+        document.getElementById("apiKey").textContent = R;
+
+        await new Promise(resolve=>setTimeout(resolve,450));
+        page("keyPage");
+        showNotice("ACCESS READY","Key page loaded","âœ“",900);
+      } else {
+        // à¦à¦°à¦° à¦®à§à¦¯à¦¾à¦ªà¦¿à¦‚ (à¦†à¦ªà¦¨à¦¾à¦° à¦ªà§à¦°à§‹à¦¨à§‹ à¦•à§‹à¦¡ à¦…à¦¨à§à¦¯à¦¾à§Ÿà§€)
+        const F = o.indexOf("anomaly") !== -1;
+        const l = o.indexOf("no_session") !== -1;
+        const X = o.indexOf("Just a moment") !== -1;
+        
+        const U = F ? "SECURITY ANOMALY" : l ? "SESSION TERMINATED" : X ? "CHALLENGE REQUIRED" : "TOKEN UNRESOLVED";
+        showProcessError(U);
+      }
+    }catch(error){
+      showProcessError(error?.message || "Gateway Unreachable");
+    }
+  }
+
+  document.getElementById("backKey").addEventListener("click",()=>{
+    page("accessPage");
+    document.getElementById("license").focus();
+  });
+
+  // Touch Feedback Effects (à¦†à¦ªà¦¨à¦¾à¦° à¦¦à§‡à¦“à§Ÿà¦¾ à¦•à§‹à¦¡ à¦…à¦¨à§à¦¯à¦¾à§Ÿà§€)
+  let lastTouch = 0;
+  function bubbleTouch(x, y){
+    const now = performance.now();
+    if(now - lastTouch < 35) return;
+    lastTouch = now;
+
+    const count = 22;
+    for(let i = 0; i < count; i++){
+      const bubble = document.createElement("span");
+      bubble.style.position = "fixed";
+      bubble.style.left = x + "px";
+      bubble.style.top = y + "px";
+      bubble.style.width = (3 + Math.random() * 7) + "px";
+      bubble.style.height = bubble.style.width;
+      bubble.style.borderRadius = "50%";
+      bubble.style.pointerEvents = "none";
+      bubble.style.zIndex = "2147483648";
+      bubble.style.background = "radial-gradient(circle at 30% 25%,rgba(255,255,255,.95),rgba(80,215,235,.48) 42%,rgba(80,125,245,.18))";
+      bubble.style.border = "1px solid rgba(255,255,255,.65)";
+      bubble.style.boxShadow = "0 0 5px rgba(55,200,230,.25),inset 0 0 3px rgba(255,255,255,.8)";
+
+      const angle = Math.random() * Math.PI * 2;
+      const distance = 35 + Math.random() * 85;
+      const dx = Math.cos(angle) * distance;
+      const dy = Math.sin(angle) * distance;
+      const duration = 650 + Math.random() * 500;
+
+      bubble.animate([
+        {transform:"translate(-50%,-50%) scale(.2)",opacity:0},
+        {transform:"translate(-50%,-50%) scale(1)",opacity:.9,offset:.18},
+        {transform:`translate(calc(-50% + ${dx}px),calc(-50% + ${dy}px)) scale(.35)`,opacity:0}
+      ], {duration,easing:"cubic-bezier(.16,.72,.22,1)",fill:"forwards"});
+
+      document.body.appendChild(bubble);
+      setTimeout(() => bubble.remove(), duration + 50);
+    }
+
+    const center = document.createElement("span");
+    center.style.position = "fixed";
+    center.style.left = x + "px";
+    center.style.top = y + "px";
+    center.style.width = "12px";
+    center.style.height = "12px";
+    center.style.borderRadius = "50%";
+    center.style.pointerEvents = "none";
+    center.style.zIndex = "2147483648";
+    center.style.border = "1px solid rgba(70,205,230,.6)";
+    center.style.boxShadow = "0 0 10px rgba(65,205,230,.25)";
+    center.animate([
+      {transform:"translate(-50%,-50%) scale(.2)",opacity:.8},
+      {transform:"translate(-50%,-50%) scale(3)",opacity:0}
+    ], {duration:500,easing:"ease-out",fill:"forwards"});
+    document.body.appendChild(center);
+    setTimeout(() => center.remove(), 550);
+  }
+
+  addEventListener("pointerdown", e => bubbleTouch(e.clientX, e.clientY), {passive:true});
+
+  function createTouchRipple(x,y){
+    const ripple=document.createElement("span");
+    ripple.className="touch-ripple";
+    ripple.style.left=x+"px";
+    ripple.style.top=y+"px";
+    document.body.appendChild(ripple);
+    ripple.addEventListener("animationend",()=>ripple.remove(),{once:true});
+  }
+
+  document.addEventListener("pointerdown",(e)=>{
+    if(e.pointerType==="mouse" && e.button!==0) return;
+    createTouchRipple(e.clientX,e.clientY);
+  },{passive:true});
+
 }());
